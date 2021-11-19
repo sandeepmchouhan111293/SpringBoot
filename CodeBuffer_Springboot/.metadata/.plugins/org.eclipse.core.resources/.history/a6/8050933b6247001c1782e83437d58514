@@ -1,0 +1,9 @@
+package com.infybank.exception;
+
+public class InfyBankException extends Exception{
+
+	public Object getMessage() {
+		return super();
+	}
+
+}

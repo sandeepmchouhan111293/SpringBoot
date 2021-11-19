@@ -1,0 +1,6 @@
+package com.springresttemplatedemo;
+
+@RestController
+public class RestConsumeController {
+
+}

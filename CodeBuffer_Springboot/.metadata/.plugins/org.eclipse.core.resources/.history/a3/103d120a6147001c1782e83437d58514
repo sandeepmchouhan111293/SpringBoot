@@ -1,0 +1,14 @@
+package com.infybank.exception;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class InfyBankExceptionHandler extends Exception{
+
+	private static final long serialVersionUID = 1L;
+
+	public ResponseEntity<String> infyBankExceptionHandler(String message) {
+		super(message);
+	}
+}

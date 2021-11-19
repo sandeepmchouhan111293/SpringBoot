@@ -1,0 +1,17 @@
+package com.springresttemplatedemo.dto;
+
+import java.time.LocalDate;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@Entity
+public class CabBookingDTO {
+
+	private Integer	bookingId;
+	private String source;
+	private String destination;
+	private Float fare;
+	private LocalDate travelDate;
+	private Long userMobile;
+	private Character status;
+}

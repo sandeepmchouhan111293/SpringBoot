@@ -1,0 +1,79 @@
+package com.infybank.controller;
+
+import java.util.Objects;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Customer {
+
+	private long customerId;
+	private String customerName;
+	private String address;
+	private String pincode;
+	
+	public Customer() {	}
+
+	public Customer(String customerName, String address, String pincode) {
+		super();
+		this.customerName = customerName;
+		this.address = address;
+		this.pincode = pincode;
+	}
+
+	public long getCustomerId() {
+		return customerId;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", address=" + address
+				+ ", pincode=" + pincode + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(address, customerId, customerName, pincode);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		return Objects.equals(address, other.address) && customerId == other.customerId
+				&& Objects.equals(customerName, other.customerName) && Objects.equals(pincode, other.pincode);
+	}
+	
+	
+	
+	
+}

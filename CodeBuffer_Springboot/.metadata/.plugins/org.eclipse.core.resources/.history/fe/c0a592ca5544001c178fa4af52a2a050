@@ -1,0 +1,11 @@
+package com.infybank.service;
+
+import java.util.List;
+
+import com.infybank.entity.Customer;
+
+public interface CustomerService {
+
+	List<Customer> getAllCustomerDetails();
+
+}

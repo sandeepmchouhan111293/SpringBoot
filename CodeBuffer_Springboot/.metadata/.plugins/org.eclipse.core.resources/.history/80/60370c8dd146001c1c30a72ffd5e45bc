@@ -1,0 +1,16 @@
+package com.springresttemplatedemo.dto;
+
+import java.time.LocalDate;
+
+
+
+public class CabBookingDTO {
+
+	private Integer	bookingId;
+	private String source;
+	private String destination;
+	private Float fare;
+	private LocalDate travelDate;
+	private Long userMobile;
+	private Character status;
+}

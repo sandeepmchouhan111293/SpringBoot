@@ -1,0 +1,12 @@
+server.port=8081
+spring.datasource.url=jdbc:mysql://localhost:3306/customer_db
+spring.datasource.username=Sandeep
+spring.datasource.password=Admin2021@
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+Service.CUSTOMER_NOT_FOUND = No customer found with given customer id.
+Service.CUSTOMERS_NOT_FOUND = No customers found.
+API.INSERT_SUCCESS=Customer added successfully with customer id :
+API.UPDATE_SUCCESS=Customer email-id successfully updated.

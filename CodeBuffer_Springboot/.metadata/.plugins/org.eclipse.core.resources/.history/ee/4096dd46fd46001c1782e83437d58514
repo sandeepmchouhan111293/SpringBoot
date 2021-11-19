@@ -1,0 +1,52 @@
+package com.springresttemplatedemo;
+
+import java.time.LocalDate;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.client.RestTemplate;
+
+import com.springresttemplatedemo.dto.CabBookingDTO;
+
+@SpringBootApplication
+public class InfyCabsRestConsumerApplication implements CommandLineRunner{
+
+	private static final Log LOGGER = LogFactory.getLog(InfyCabsRestConsumerApplication.class);
+		
+	public static void main(String[] args) {
+		SpringApplication.run(InfyCabsRestConsumerApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		/*
+		 * CabBookingDTO cabBookingDTO = new CabBookingDTO();
+		 * cabBookingDTO.setSource("Santa Monica");
+		 * cabBookingDTO.setDestination("California");
+		 * cabBookingDTO.setFare((float)500);
+		 * cabBookingDTO.setTravelDate(LocalDate.of(2021, 11, 17));
+		 * cabBookingDTO.setUserMobile((long) 789654123); cabBookingDTO.setStatus('A');
+		 * bookCab(cabBookingDTO);
+		 */
+		
+		getBookingDetails((long)789654123);
+	}
+
+	public void bookCab(CabBookingDTO cabBookingDTO) {
+		String url ="http://localhost:8765/";
+		RestTemplate restTemplate = new RestTemplate();
+		String message =restTemplate.postForObject(url, cabBookingDTO, String.class);
+		LOGGER.info(message);
+	}
+	
+	public void getBookingDetails(Long userMobile) {
+		String url ="http://localhost:8765/{userMobile}";
+		RestTemplate restTemplate = new RestTemplate();
+		CabBookingDTO cabBookingDTO =restTemplate.getForObject(url, CabBookingDTO.class);
+		LOGGER.info(cabBookingDTO);
+	}
+}

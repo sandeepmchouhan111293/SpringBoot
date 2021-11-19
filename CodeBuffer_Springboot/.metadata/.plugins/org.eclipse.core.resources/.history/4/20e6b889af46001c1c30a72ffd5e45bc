@@ -1,0 +1,20 @@
+BookingService.INVALID_SERVICE_AREA=Our service can't be availed to the entered location.
+BookingService.BOOKINGS_NOT_FOUND=No booking details found.
+
+
+API.BOOKING_CANCELLED=Booking cancelled successfully.
+API.BOOKING_SUCCESSFUL=Booking successfully with booking id :  
+
+# MySQL settings
+#Change these settings according to database you are using
+spring.datasource.url=jdbc:mysql://localhost:3306/infycab_db
+spring.datasource.username=Sandeep
+
+#If MySQL installation is password proctored,then use below property to set password
+spring.datasource.password=Admin2021@
+
+#JPA settings
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.format_sql=false
+
+server.port=8765

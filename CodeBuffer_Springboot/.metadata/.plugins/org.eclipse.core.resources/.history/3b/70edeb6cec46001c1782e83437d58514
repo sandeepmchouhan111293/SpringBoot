@@ -1,0 +1,48 @@
+package com.springresttemplatedemo.dto;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
+@Entity
+@Getter
+@Setter 
+@NoArgsConstructor 
+@AllArgsConstructor 
+@ToString
+public class CabBookingDTO {
+
+	private Integer	bookingId;
+	private String source;
+	private String destination;
+	private Float fare;
+	private LocalDate travelDate;
+	private Long userMobile;
+	private Character status;
+	
+	/*
+	public CabBookingDTO(Integer bookingId, String source, String destination, Float fare, LocalDate travelDate,
+			Long userMobile, Character status) {
+		super();
+		this.bookingId = bookingId;
+		this.source = source;
+		this.destination = destination;
+		this.fare = fare;
+		this.travelDate = travelDate;
+		this.userMobile = userMobile;
+		this.status = status;
+	}
+
+	public CabBookingDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	*/
+}

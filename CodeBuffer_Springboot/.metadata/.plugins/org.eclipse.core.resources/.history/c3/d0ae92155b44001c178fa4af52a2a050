@@ -1,0 +1,5 @@
+package com.infybank.utility;
+
+public class LoggingAspect {
+
+}

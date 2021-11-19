@@ -1,0 +1,75 @@
+package com.infybank.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.infybank.dto.CustomerDTO;
+import com.infybank.entity.Customer;
+import com.infybank.exception.InfyBankException;
+import com.infybank.repository.CustomerRepository;
+
+@Service(value="customerService")
+@Transactional
+public class CustomerServiceImpl implements CustomerService{
+
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	@Override
+	public List<CustomerDTO> getAllCustomerDetails() throws InfyBankException {
+		Iterable<Customer> customers = customerRepository.findAll();
+		List<CustomerDTO> customerList = new ArrayList<>();
+		customers.forEach(customer ->{
+			CustomerDTO cust = new CustomerDTO();
+			cust.setCustomerId(customer.getCustomerId());
+			cust.setName(customer.getName());
+			cust.setEmailId(customer.getEmailId());
+			cust.setDateOfBirth(customer.getDateOfBirth());
+			customerList.add(cust);
+		});
+		if(customerList.isEmpty()) {
+			throw new InfyBankException("Service.CUSTOMERS_NOT_FOUND");
+		}
+			
+		return customerList;
+	}
+
+	@Override
+	public CustomerDTO getCustomerDetails(Integer customerId) {
+		Optional<Customer> tempCustomer = customerRepository.findById(customerId);
+		Customer customer = tempCustomer.get();
+		CustomerDTO dtoObject = new CustomerDTO();
+		if(customer.getCustomerId() != null)	dtoObject.setCustomerId(customer.getCustomerId());
+		if(!customer.getName().isEmpty() && customer.getName() != "")	dtoObject.setName(customer.getName());
+		if(customer.getDateOfBirth() != null )	dtoObject.setDateOfBirth(customer.getDateOfBirth());
+		if(customer.getEmailId() != null)	dtoObject.setEmailId(customer.getEmailId());
+		return dtoObject;
+	}
+
+	@Override
+	public Integer addCustomer(Customer customer) {	
+		Customer cust =customerRepository.save(customer);
+		return cust.getCustomerId();
+	}
+
+	@Override
+	public void deleteCustomer(Integer customerId) {
+		customerRepository.deleteById(customerId);
+	}
+
+	@Override
+	public Customer updateCustomer(CustomerDTO cust) {
+		Customer customer = new Customer();
+		customer.setCustomerId(cust.getCustomerId());
+		customer.setName(cust.getName());
+		customer.setEmailId(cust.getEmailId());
+		customer.setDateOfBirth(cust.getDateOfBirth());
+		return customerRepository.save(customer);	
+	}
+
+}

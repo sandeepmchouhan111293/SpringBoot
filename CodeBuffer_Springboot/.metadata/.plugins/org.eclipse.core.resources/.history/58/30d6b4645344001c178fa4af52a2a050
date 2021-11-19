@@ -1,0 +1,8 @@
+package com.infybank.controller;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Customer {
+
+}

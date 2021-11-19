@@ -1,0 +1,12 @@
+package com.infybank.controller;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Customer {
+
+	private long customerId;
+	private String customerName;
+	private String address;
+	private String pincode;
+}

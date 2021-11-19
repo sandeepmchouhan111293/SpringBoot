@@ -1,0 +1,10 @@
+package com.infybank.exception;
+
+public class InfyBankException {
+
+	public Object getMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

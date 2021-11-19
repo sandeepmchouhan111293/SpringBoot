@@ -1,0 +1,20 @@
+package com.infybank.exception;
+
+import org.hibernate.cfg.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class InfyBankExceptionHandler extends Exception{
+
+	@Autowired
+	private Environment environment;
+	
+	private static final long serialVersionUID = 1L;
+
+	public ResponseEntity<String> infyBankExceptionHandler(InfyBankException exception) {
+		return new ResponseEntity<>(environment.get)
+				
+	}
+}

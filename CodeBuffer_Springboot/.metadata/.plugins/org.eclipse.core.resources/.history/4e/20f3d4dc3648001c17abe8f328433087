@@ -1,0 +1,6 @@
+package com.infy.exception;
+
+@RestControllerAdvice
+public class InfyCourierExceptionHandler {
+
+}
